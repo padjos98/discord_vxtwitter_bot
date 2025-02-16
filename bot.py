@@ -1,6 +1,7 @@
 #import required libraries and frameworks 
 from discord.ext import commands
 import discord
+import os
 from dotenv import load_dotenv
 from pathlib import Path
 import vxtwitterlink
