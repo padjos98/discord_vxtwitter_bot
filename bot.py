@@ -28,7 +28,7 @@ async def on_message(message):
     if link == -1:
         print("Invalid Link")
     else:
-        print(link)
+        await message.delete()
 			
 #Run the bot
 bot.run(TOKEN)

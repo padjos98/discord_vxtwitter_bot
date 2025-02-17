@@ -1,3 +1,4 @@
+#Function used to change the url of an x link to a vxtwitter link
 def vxtwitterlinkfunc(xtwitterlink):
     #define xtwitter and vxtwitter urls
     xtwitterurl = "https://x.com/"
