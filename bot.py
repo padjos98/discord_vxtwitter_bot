@@ -8,8 +8,8 @@ import vxtwitterlink
 
 #Access the .env file
 #env_path = Path('.') / '.env'
-load_dotenv(dotenv_path=find_dotenv(), override=True)
-TOKEN = os.environ.get('BOT_TOKEN')
+load_dotenv()
+TOKEN = os.environ.get('TOKEN')
 CHANNEL_ID = os.environ.get('GENERAL_CHANNEL_ID')
 
 #Define the bot for all events and command handling
