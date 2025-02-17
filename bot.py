@@ -9,8 +9,9 @@ import vxtwitterlink
 load_dotenv()
 TOKEN = os.environ.get('BOT_TOKEN')
 
-#Declare general channel
-GENERAL_CHANNEL_ID=470047029251407875
+#Declare channel ID's
+GENERAL_CHANNEL_ID = 470047029251407875
+LOG_CHANNEL_ID = 1335751007812059176
 
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
@@ -37,10 +38,13 @@ async def on_message(message):
         general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
         await general_channel.send(link)
 
-#Handling for User Logon
+#Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
      print(member)
+     
+     log_channel = bot.get_channel(LOG_CHANNEL_ID)
+     await log_channel.send(member)
    
 
 
