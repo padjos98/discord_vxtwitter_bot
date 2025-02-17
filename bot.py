@@ -29,5 +29,6 @@ async def on_message(message):
 		print(link)
 
 #Run the bot
-print(TOKEN + "  " + CHANNEL_ID)
+print(TOKEN)
+print(CHANNEL_ID)
 #bot.run(TOKEN)
