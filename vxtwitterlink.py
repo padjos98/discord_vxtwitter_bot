@@ -9,4 +9,4 @@ def vxtwitterlinkfunc(xtwitterlink):
         return vxtwitterlink
     #check to see if it is a twitter link if not return -1
     else:
-      return -1
+      return
