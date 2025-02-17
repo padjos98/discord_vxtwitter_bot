@@ -36,7 +36,7 @@ async def on_message(message):
     else:
         await message.delete()
         general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
-        await general_channel.send("@" + message.author + "/n" + link)
+        await general_channel.send("@" + str(message.author) + "/n" + link)
 
 #Handling for User Logon and Logout events
 @bot.event
