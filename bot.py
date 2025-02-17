@@ -8,7 +8,7 @@ import vxtwitterlink
 #Access the .env file
 load_dotenv()
 TOKEN = os.environ.get('BOT_TOKEN')
-CHANNEL_ID = os.environ.get('GENERAL_CHANNEL_ID')
+CHANNEL_ID = os.environ.get(int('GENERAL_CHANNEL_ID'))
 
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
