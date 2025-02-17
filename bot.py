@@ -3,7 +3,7 @@ from discord.ext import commands
 import discord
 import os
 from dotenv import load_dotenv
-from pathlib import Path
+#from pathlib import Path
 import vxtwitterlink
 
 #Access the .env file
@@ -29,5 +29,5 @@ async def on_message(message):
 		print(link)
 
 #Run the bot
-print(TOKEN)
+print(TOKEN + "  " + CHANNEL_ID)
 #bot.run(TOKEN)
