@@ -36,17 +36,18 @@ async def on_message(message):
     else:
         await message.delete()
         general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
-        await general_channel.send(message.author.mention + link)
+        await general_channel.send(message.author.mention + '\n' + link)
 
 #Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
     #Declare variables
-	current_user = str(member)
-	sep = '#'
-	current_user = current_user.split(sep, 1)[0]
-	log_channel = bot.get_channel(LOG_CHANNEL_ID)
-	await log_channel.send(current_user)
+    current_user = str(member)
+    status = member.activity
+    sep = '#'
+    current_user = current_user.split(sep, 1)[0]
+    log_channel = bot.get_channel(LOG_CHANNEL_ID)
+    await log_channel.send(current_user + status)
 
 #Run the bot
 bot.run(TOKEN)
