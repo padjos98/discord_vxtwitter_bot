@@ -35,6 +35,15 @@ async def on_message(message):
     else:
         await message.delete()
         await general_channel.send(link)
-        		
+
+#Handling for Logon Events
+@bot.event
+async def on_member_join():
+     await general_channel.send(1)
+#Handling for Logout Events
+@bot.event
+async def on_member_remove():
+	await general_channel.send(2)
+
 #Run the bot
 bot.run(TOKEN)
