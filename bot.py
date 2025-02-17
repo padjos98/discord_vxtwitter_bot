@@ -9,12 +9,12 @@ import vxtwitterlink
 load_dotenv()
 TOKEN = os.environ.get('BOT_TOKEN')
 
+#Declare general channel
+GENERAL_CHANNEL_ID=470047029251407875
+
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
- #Declare general channel
-GENERAL_CHANNEL_ID=470047029251407875
-general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
 
 #Confrim bot is ready in terminal
 @bot.event
@@ -34,6 +34,7 @@ async def on_message(message):
         return
     else:
         await message.delete()
+        general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
         await general_channel.send(link)
 
 
