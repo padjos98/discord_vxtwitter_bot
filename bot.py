@@ -44,7 +44,7 @@ async def on_voice_state_update(member, before, after):
      print(member)
      
      log_channel = bot.get_channel(LOG_CHANNEL_ID)
-     await log_channel.send(member)
+     await log_channel.send(member + before + after)
    
 
 
