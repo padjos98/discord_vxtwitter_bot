@@ -41,12 +41,12 @@ async def on_message(message):
 #Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
-     print(member)
-     
-     log_channel = bot.get_channel(LOG_CHANNEL_ID)
-     await log_channel.send(member + before + after)
-   
-
+    #Declare variables
+	current_user = member
+	sep = '#'
+	current_user = current_user.split(sep, 1)[0]
+	log_channel = bot.get_channel(LOG_CHANNEL_ID)
+	await log_channel.send(current_user)
 
 #Run the bot
 bot.run(TOKEN)
