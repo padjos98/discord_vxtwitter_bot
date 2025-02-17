@@ -4,6 +4,7 @@ import discord
 import os
 from dotenv import load_dotenv, find_dotenv
 import vxtwitterlink
+import LogonLogoffMessage
 
 #Access the .env file
 load_dotenv()
@@ -41,32 +42,12 @@ async def on_message(message):
 #Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
-    #Declare variables
-    current_user = str(member)
-    profile_pic = member.display_avatar
-    sep = '#'
-    current_user = current_user.split(sep, 1)[0]
+    # #Declare variables
     log_channel = bot.get_channel(LOG_CHANNEL_ID)
 
-    #Create the embedded message
-    embedded_message = discord.Embed(
-        title="Sample Embed",
-        description="This is a description of the embed message.",
-        color=discord.Color.blue()
-    )
-
-    # Add fields to the embed
-    embedded_message.add_field(name="Field 1", value="This is the value for Field 1", inline=False)
-    embedded_message.add_field(name="Field 2", value="This is the value for Field 2", inline=True)
-    embedded_message.add_field(name="Field 3", value="This is the value for Field 3", inline=True)
-
-    # Add footer and other elements
-    embedded_message.set_footer(text="Time: ")
-
     #Send the embedded message
-    await log_channel.send(embedded_message=embedded_message)
-
-    
+    embed = LogonLogoffMessage.MessageCreate(member)
+    await log_channel.send(embed=embed)
 
 #Run the bot
 bot.run(TOKEN)
