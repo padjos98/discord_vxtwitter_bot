@@ -43,11 +43,16 @@ async def on_message(message):
 async def on_voice_state_update(member, before, after):
     #Declare variables
     current_user = str(member)
-    status = member.activity
+    profile_pic = member.display_avatar
     sep = '#'
     current_user = current_user.split(sep, 1)[0]
     log_channel = bot.get_channel(LOG_CHANNEL_ID)
-    await log_channel.send(current_user + status)
+
+    #Create the embedded message
+    embedded_message = discord.embed()
+
+    #Send the embedded message
+    await log_channel.send(current_user)
 
 #Run the bot
 bot.run(TOKEN)
