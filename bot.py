@@ -21,7 +21,7 @@ async def on_ready():
 
 #Message handling when a user sends a messgae
 @bot.event
-async def on_message(message):
+async def on_message(ctx, message):
     user_message = message.content
     link = vxtwitterlink.vxtwitterlinkfunc(user_message)
     
@@ -29,8 +29,8 @@ async def on_message(message):
         print("Invalid Link")
     else:
         await message.delete()
-        channel = bot.get_channel(CHANNEL_ID)
-        await channel.send(link)
+        await ctx.send(link)
+        
 			
 #Run the bot
 bot.run(TOKEN)
