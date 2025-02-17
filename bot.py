@@ -43,10 +43,10 @@ async def on_message(message):
 async def on_voice_state_update(member, before, after):
     #Declare variables
 	current_user = member
-	sep = '#'
-	current_user = current_user.split(sep, 1)[0]
+	#sep = '#'
+	#current_user = current_user.split(sep, 1)[0]
 	log_channel = bot.get_channel(LOG_CHANNEL_ID)
-	await log_channel.send(current_user)
+	await log_channel.send(type(current_user))
 
 #Run the bot
 bot.run(TOKEN)
