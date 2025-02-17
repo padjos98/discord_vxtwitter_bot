@@ -24,7 +24,9 @@ async def on_ready():
 async def on_message(message):
 		user_message = message.content
 		link = vxtwitterlink.vxtwitterlinkfunc(user_message)
-		print(link)
 
+		if user_message != -1:
+			print(link)
+			
 #Run the bot
 bot.run(TOKEN)
