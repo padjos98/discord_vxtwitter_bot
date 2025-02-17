@@ -12,11 +12,9 @@ TOKEN = os.environ.get('BOT_TOKEN')
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
-#Declare general channel
+ #Declare general channel
 GENERAL_CHANNEL_ID=470047029251407875
 general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
-VOICE_CHANNEL_ID = 470047029687484416
-vocie_channel = bot.get_channel(VOICE_CHANNEL_ID)
 
 #Confrim bot is ready in terminal
 @bot.event
@@ -38,14 +36,7 @@ async def on_message(message):
         await message.delete()
         await general_channel.send(link)
 
-#Handling for Logon Events
-@bot.event
-async def on_member_join():
-     await general_channel.send(1)
-#Handling for Logout Events
-@bot.event
-async def on_member_remove():
-	await general_channel.send(2)
+
 
 #Run the bot
 bot.run(TOKEN)
