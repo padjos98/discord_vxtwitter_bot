@@ -39,7 +39,7 @@ async def on_message(message):
 
 #Handling for User Logon
 @bot.event
-async def on_voice_state_update(member):
+async def on_voice_state_update(member, before, after):
      print(member)
    
 
