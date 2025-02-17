@@ -7,10 +7,10 @@ from pathlib import Path
 import vxtwitterlink
 
 #Access the .env file
-env_path = Path(__file__).parent.parent / 'vxtwitterbot' / '.env'
+env_path = Path('.') / '.env'
 load_dotenv(env_path)
 TOKEN = os.getenv('BOT_TOKEN')
-CHANNEL_ID = os.getenv('GENERAL_CHANNEL_ID', '!')
+CHANNEL_ID = os.getenv('GENERAL_CHANNEL_ID')
 
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
@@ -29,4 +29,5 @@ async def on_message(message):
 		print(link)
 
 #Run the bot
-bot.run(TOKEN)
+print(TOKEN)
+#bot.run(TOKEN)
