@@ -2,13 +2,13 @@
 from discord.ext import commands
 import discord
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv, find_dotenv
 #from pathlib import Path
 import vxtwitterlink
 
 #Access the .env file
 #env_path = Path('.') / '.env'
-load_dotenv(".env")
+load_dotenv(dotenv_path=find_dotenv(), override=True)
 TOKEN = os.environ.get('BOT_TOKEN')
 CHANNEL_ID = os.environ.get('GENERAL_CHANNEL_ID')
 
