@@ -37,6 +37,11 @@ async def on_message(message):
         general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
         await general_channel.send(link)
 
+#Handling for User Logon
+@bot.event
+async def on_on_voice_state_update(member):
+     print(member)
+   
 
 
 #Run the bot
