@@ -67,7 +67,7 @@ async def on_voice_state_update(member, before, after):
     embedded_message.set_image(url="https://example.com/image.png")
 
     #Send the embedded message
-    await log_channel.send(current_user)
+    await log_channel.send(embedded_message)
 
 #Run the bot
 bot.run(TOKEN)
