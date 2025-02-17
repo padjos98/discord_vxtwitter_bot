@@ -25,7 +25,7 @@ async def on_message(message):
 		user_message = message.content
 		link = vxtwitterlink.vxtwitterlinkfunc(user_message)
 
-		if user_message == None:
+		if user_message == "-1":
 			print("Invalid Link")
 		else:
 			print(link)
