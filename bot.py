@@ -28,7 +28,7 @@ async def on_message(message):
     if user_message == x:
         print("Invalid Link")
     else:
-        print(link)
+        print(type(link))
 			
 #Run the bot
 bot.run(TOKEN)
