@@ -61,13 +61,12 @@ async def on_voice_state_update(member, before, after):
     embedded_message.add_field(name="Field 3", value="This is the value for Field 3", inline=True)
 
     # Add footer and other elements
-    embedded_message.set_footer(text="This is a footer")
-    embedded_message.set_author(name="Author Name", icon_url="https://example.com/author_icon.png")
-    embedded_message.set_thumbnail(url="https://example.com/thumbnail.png")
-    embedded_message.set_image(url="https://example.com/image.png")
+    embedded_message.set_footer(text="Time: ")
 
     #Send the embedded message
-    await log_channel.send(embedded_message)
+    await log_channel.send(embedded_message=embedded_message)
+
+    
 
 #Run the bot
 bot.run(TOKEN)
