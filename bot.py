@@ -49,7 +49,7 @@ async def on_voice_state_update(member, before, after):
     log_channel = bot.get_channel(LOG_CHANNEL_ID)
 
     #Create the embedded message
-    embedded_message = discord.embed()
+    embedded_message = discord.Embed()
 
     #Send the embedded message
     await log_channel.send(current_user)
