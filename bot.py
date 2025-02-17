@@ -41,11 +41,11 @@ async def on_message(message):
 #Handling for Logon Events
 @bot.event
 async def on_member_join():
-     await vocie_channel.send(1)
+     await general_channel.send(1)
 #Handling for Logout Events
 @bot.event
 async def on_member_remove():
-	await vocie_channel.send(2)
+	await general_channel.send(2)
 
 #Run the bot
 bot.run(TOKEN)
