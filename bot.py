@@ -29,6 +29,7 @@ async def on_message(message):
         print("Invalid Link")
     else:
         await message.delete()
+        await CHANNEL_ID.send(link)
 			
 #Run the bot
 bot.run(TOKEN)
