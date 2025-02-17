@@ -49,7 +49,22 @@ async def on_voice_state_update(member, before, after):
     log_channel = bot.get_channel(LOG_CHANNEL_ID)
 
     #Create the embedded message
-    embedded_message = discord.Embed()
+    embedded_message = discord.Embed(
+        title="Sample Embed",
+        description="This is a description of the embed message.",
+        color=discord.Color.blue()
+    )
+
+    # Add fields to the embed
+    embedded_message.add_field(name="Field 1", value="This is the value for Field 1", inline=False)
+    embedded_message.add_field(name="Field 2", value="This is the value for Field 2", inline=True)
+    embedded_message.add_field(name="Field 3", value="This is the value for Field 3", inline=True)
+
+    # Add footer and other elements
+    embedded_message.set_footer(text="This is a footer")
+    embedded_message.set_author(name="Author Name", icon_url="https://example.com/author_icon.png")
+    embedded_message.set_thumbnail(url="https://example.com/thumbnail.png")
+    embedded_message.set_image(url="https://example.com/image.png")
 
     #Send the embedded message
     await log_channel.send(current_user)
