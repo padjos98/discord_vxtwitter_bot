@@ -24,11 +24,11 @@ async def on_ready():
 async def on_message(message):
     user_message = message.content
     link = vxtwitterlink.vxtwitterlinkfunc(user_message)
-    x = -1
-    if user_message == x:
+    
+    if link == -1:
         print("Invalid Link")
     else:
-        print(type(link))
+        print(link)
 			
 #Run the bot
 bot.run(TOKEN)
