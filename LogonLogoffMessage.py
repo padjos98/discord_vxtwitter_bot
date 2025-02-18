@@ -33,8 +33,7 @@ def MessageCreate(member, before, after):
     embed = discord.Embed(color=message_color)
 
     #Add fields to the embed
-    #embed.set_thumbnail(url=profile_pic)
-    embed.add_field(name=current_user, value="", inline=True)
+    embed.set_author(name=current_user, icon_url=profile_pic)
     embed.add_field(name=voice_state, value="", inline=False)
     embed.add_field(name="User", value=member.mention, inline=True)
     embed.add_field(name="Channel", value=current_channel.mention, inline=True)
