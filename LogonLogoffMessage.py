@@ -11,14 +11,26 @@ def MessageCreate(member, before, after):
     now = datetime.now()
     current_channel = after.channel
     previous_channel = before.channel
-    color = 'red'
+    message_color = 'red'
+
+    #Choose color base on what the user did
+    print(before)
+    print(after)
+    if previous_channel == None:
+        message_colorcolor = 'green'
+    elif current_channel == None:
+        message_colorcolor = 'red'
+    else:
+        message_colorcolor = 'yellow'
 
     if current_channel == None:
         current_channel = before.channel
+    elif previous_channel == None:
+        current_channel = after.channel
 
 
     #Create the embedded message
-    embed = discord.Embed()
+    embed = discord.Embed(color=message_color)
 
     #Add fields to the embed
     #embed.set_thumbnail(url=profile_pic)
