@@ -20,15 +20,15 @@ def MessageCreate(member, before, after):
         
     if current_channel == None:
         current_channel = before.channel
-        message_colorcolor = 'red'
+        message_color = 'red'
         voice_state = "Voice Leave"
     elif previous_channel == None:
         current_channel = after.channel
-        message_colorcolor = 'green'
+        message_color = 'green'
         voice_state = "Voice Join"
     else:
         current_channel = after.channel
-        message_colorcolor = 'yellow'
+        message_color = 'yellow'
         voice_state = "Voice Switch"
 
     #Create the embedded message
