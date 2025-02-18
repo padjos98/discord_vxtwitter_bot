@@ -1,13 +1,19 @@
 #import required libraries and frameworks 
 from discord.ext import commands
 import discord
+from datetime import datetime
 
-def MessageCreate(member):
-#Declare variables
-    current_user = str(member)
-    profile_pic = member.display_avatar
+def MessageCreate(member, before, after):
+    #Declare variables
     sep = '#'
-    current_user = current_user.split(sep, 1)[0]
+    current_user = str(member).split(sep, 1)[0]
+    profile_pic = member.display_avatar
+    now = datetime.now()
+    current_channel = after.channel
+
+    if current_channel == None:
+        current_channel = before.channel
+
 
     #Create the embedded message
     embed = discord.Embed()
@@ -17,7 +23,6 @@ def MessageCreate(member):
     embed.add_field(name=current_user, value="", inline=True)
     embed.add_field(name="Voice Leave", value="", inline=False)
     embed.add_field(name="User", value=member.mention, inline=True)
-    embed.add_field(name="Channel", value="", inline=True)
-    embed.add_field(name="Time", value="", inline=False)
-    #Send the embedded message
-    
+    embed.add_field(name="Channel", value=current_channel.mention, inline=True)
+    embed.add_field(name=now.strftime("%m/%d/%y %H:%-I:%S %p"), value="", inline=False)  
+    return embed 

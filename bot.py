@@ -42,11 +42,11 @@ async def on_message(message):
 #Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
-    # #Declare variables
+    #Declare variables
     log_channel = bot.get_channel(LOG_CHANNEL_ID)
-
+ 
     #Send the embedded message
-    embed = LogonLogoffMessage.MessageCreate(member)
+    embed = LogonLogoffMessage.MessageCreate(member, before, after)
     await log_channel.send(embed=embed)
 
 #Run the bot
