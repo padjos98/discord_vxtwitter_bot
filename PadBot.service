@@ -1,16 +1,14 @@
 [Unit]
-Description=My Discord Bot
+Description=Discord PadBot Service
 After=network.target
 
 [Service]
 Type=simple
-User=pi  
-Group=pi
-WorkingDirectory=/home/pi/discord_vxtwtitter_bot
+User=pi
+WorkingDirectory=/home/pi/discord_vxtwitter_bot
 ExecStart=/usr/bin/python3 /home/pi/discord_vxtwitter_bot/bot.py
 Restart=always
-StandardOutput=syslog
-StandardError=syslog
+RestartSec=10
 
 [Install]
 WantedBy=multi-user.target
