@@ -11,24 +11,22 @@ def MessageCreate(member, before, after):
     now = datetime.now()
     current_channel = after.channel
     previous_channel = before.channel
-    message_color = 'red'
+    message_color = 0xff0000
     voice_state = ""
 
-    #Choose color base on what the user did
-    print(before)
-    print(after)
-        
+    #Determine if user joined, disconnected or switched channels and set color, current channel, and voice state appropriately 
+ 
     if current_channel == None:
         current_channel = before.channel
-        message_color = 'red'
+        message_color = 0xff0000
         voice_state = "Voice Leave"
     elif previous_channel == None:
         current_channel = after.channel
-        message_color = 'green'
+        message_color = 0x00ff00
         voice_state = "Voice Join"
     else:
         current_channel = after.channel
-        message_color = 'yellow'
+        message_color = 0xffff00
         voice_state = "Voice Switch"
 
     #Create the embedded message

@@ -17,7 +17,6 @@ LOG_CHANNEL_ID = 1335751007812059176
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
-
 #Confrim bot is ready in terminal
 @bot.event
 async def on_ready():
@@ -30,6 +29,8 @@ async def on_message(message):
     #Run script to swap x url 
     user_message = message.content
     link = vxtwitterlink.vxtwitterlinkfunc(user_message)
+    channelID = message.channel
+    print(channelID)
     
 	#Determine if the bot needs to delete user's link and replace with their own updated link
     if link == -1:
