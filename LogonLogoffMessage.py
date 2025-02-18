@@ -10,6 +10,8 @@ def MessageCreate(member, before, after):
     profile_pic = member.display_avatar
     now = datetime.now()
     current_channel = after.channel
+    previous_channel = before.channel
+    color = 'red'
 
     if current_channel == None:
         current_channel = before.channel
