@@ -15,7 +15,6 @@ def MessageCreate(member, before, after):
     voice_state = ""
 
     #Determine if user joined, disconnected or switched channels and set color, current channel, and voice state appropriately 
- 
     if current_channel == None:
         current_channel = before.channel
         message_color = 0xff0000
@@ -37,5 +36,5 @@ def MessageCreate(member, before, after):
     embed.add_field(name=voice_state, value="", inline=False)
     embed.add_field(name="User", value=member.mention, inline=True)
     embed.add_field(name="Channel", value=current_channel.mention, inline=True)
-    embed.add_field(name=now.strftime("%m/%d/%y %H:%-I:%S %p"), value="", inline=False)  
+    embed.add_field(name=now.strftime("%m/%d/%y %-I:%M:%S %p"), value="", inline=False)  
     return embed 
