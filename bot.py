@@ -10,10 +10,6 @@ import LogonLogoffMessage
 load_dotenv()
 TOKEN = os.environ.get('BOT_TOKEN')
 
-#Declare channel ID's
-GENERAL_CHANNEL_ID = 470047029251407875
-LOG_CHANNEL_ID = 1335751007812059176
-
 #Define the bot for all events and command handling
 bot = commands.Bot(command_prefix="!", intents=discord.Intents.all())
 
@@ -29,22 +25,22 @@ async def on_message(message):
     #Run script to swap x url 
     user_message = message.content
     link = vxtwitterlink.vxtwitterlinkfunc(user_message)
-    channelID = message.channel
-    print(channelID)
+    channelID = message.channel.id
     
 	#Determine if the bot needs to delete user's link and replace with their own updated link
     if link == -1:
         return
     else:
         await message.delete()
-        general_channel = bot.get_channel(GENERAL_CHANNEL_ID)
+        general_channel = bot.get_channel(channelID)
         await general_channel.send(message.author.mention + '\n' + link)
 
 #Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
     #Declare variables
-    log_channel = bot.get_channel(LOG_CHANNEL_ID)
+    channel = discord.utils.get(bot.get_all_channels(), name='logs')
+    log_channel = bot.get_channel(channel.id)
  
     #Send the embedded message
     embed = LogonLogoffMessage.MessageCreate(member, before, after)
