@@ -33,15 +33,16 @@ async def on_message(message):
     else:
         await message.delete()
         general_channel = bot.get_channel(channelID)
-        await general_channel.send(message.author.mention + '\n' + link)
+        await general_channel.send(content = message.author.mention + '\n' + link, silent=True)
 
 #Handling for User Logon and Logout events
 @bot.event
 async def on_voice_state_update(member, before, after):
     #Declare variables
     channel = discord.utils.get(bot.get_all_channels(), name='logs')
-    log_channel = bot.get_channel(channel.id)
- 
+    #log_channel = bot.get_channel(channel.id)
+    log_channel=1342160465395974235
+    
     #Send the embedded message
     embed = LogonLogoffMessage.MessageCreate(member, before, after)
     await log_channel.send(embed=embed)
